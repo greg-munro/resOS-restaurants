@@ -123,4 +123,6 @@ input:not(:placeholder-shown) {
     cursor: pointer;
   }
 }
-  
+.white-background {
+  background-color: #fff;
+}

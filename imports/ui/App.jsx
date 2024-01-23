@@ -10,6 +10,8 @@ export const App = () => {
   const [showAll, setShowAll] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [currentScreen, setCurrentScreen] = useState('home')
+  // set background color
+  document.body.className = currentScreen === 'all' ? 'white-background' : ''
 
   const restaurants = useTracker(() => {
     const query = showAll ? {} : { name: { $regex: searchTerm, $options: 'i' } }
@@ -34,22 +36,29 @@ export const App = () => {
             ></img>
             <SearchBar />
             <CuisineBtn />
-            <button className='btn-standard' onClick={handleShowAllRestaurants}>All Restaurants</button>
+            <button className='btn-standard' onClick={handleShowAllRestaurants}>
+              All Restaurants
+            </button>
           </div>
         </>
       )}
 
       {currentScreen === 'all' && (
-        <ul>
-        <button onClick={handleBackBtn} className='btn-standard'>Back</button>
-          {restaurants.map((restaurant) => (
-            <Restaurant
-              key={restaurant._id}
-              name={restaurant.name}
-              openingHours={restaurant.opening_hours}
-            />
-          ))}
-        </ul>
+        <div className='all-container'>
+          <ul>
+            <button onClick={handleBackBtn} className='btn-standard'>
+              Back
+            </button>
+            {restaurants.map((restaurant) => (
+              <Restaurant
+                key={restaurant._id}
+                name={restaurant.name}
+                openingHours={restaurant.opening_hours}
+                image={restaurant.image}
+              />
+            ))}
+          </ul>
+        </div>
       )}
     </>
   )
