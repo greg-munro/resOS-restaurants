@@ -9,6 +9,7 @@ import CuisineBtn from './CuisineBtn'
 export const App = () => {
   const [showAll, setShowAll] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
+  const [currentScreen, setCurrentScreen] = useState('home')
 
   const restaurants = useTracker(() => {
     const query = showAll ? {} : { name: { $regex: searchTerm, $options: 'i' } }
@@ -21,21 +22,19 @@ export const App = () => {
 
   return (
     <>
-          <label>
-        Show All Restaurants:
-        <input
-          type='checkbox'
-          checked={showAll}
-          onChange={() => setShowAll(!showAll)}
-        />
-      </label>
-      <div className='home-search'>
-        <img src='/assets/resos-logos-idgmzEl7lk.svg' className='resos-logo'></img>
-        <SearchBar onSearch={handleSearch} />
-        <CuisineBtn />
-      </div>
-
-
+      {currentScreen === 'home' && (
+        <>
+          <div className='home-search'>
+            <img
+              src='/assets/resos-logos-idgmzEl7lk.svg'
+              className='resos-logo'
+            ></img>
+            <SearchBar onSearch={handleSearch} />
+            <CuisineBtn />
+            <button className='btn-standard'>All Restaurants</button>
+          </div>
+        </>
+      )}
 
       {showAll && (
         <ul>

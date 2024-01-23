@@ -8,9 +8,9 @@ export const SearchBar = ({ onSearch }) => {
 
   return (
 <form onsubmit="event.preventDefault();" role="search">
-  <label for="search">Search for stuff</label>
+  <label className="search-label" for="search">Search for stuff</label>
   <input id="search" type="search" placeholder="Search..." autofocus required autoComplete='off' />
-  <button type="submit">Go</button>    
+  <button className="search-submit" type="submit">Go</button>    
 </form>
   );
 };
