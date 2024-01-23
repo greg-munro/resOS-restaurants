@@ -3,4 +3,37 @@
 body {
   padding: 10px;
   font-family: 'Inter', sans-serif;
+  background-color: rgb(186, 133, 203);
+  height: 100vh;
+}
+
+.home-search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.resos-logo {
+  width: 300px;
+  margin: 10px;
+}
+.cuisine-icons {
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+.cuisine-button {
+  fill: rgb(146, 146, 146);
+  width: 50px;
+  background-color: rgb(255, 254, 254);
+  margin: 10px;
+  border-radius: 50%;
+  object-fit: contain;
+  padding: 10px;
+  cursor: pointer;
 }
