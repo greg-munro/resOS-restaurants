@@ -136,3 +136,8 @@ input:not(:placeholder-shown) {
 .restaurant-card {
   margin: 15px;
 }
+.restaurant-list {
+  display: flex;
+    flex-direction: column;
+    width: 80%;
+}

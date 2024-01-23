@@ -5,18 +5,17 @@ import { Restaurant } from './Restaurant'
 import { RestaurantsCollection } from '../api/RestaurantsCollection'
 import { SearchBar } from './SearchBar'
 import CuisineBtn from './CuisineBtn'
+import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
 
 export const App = () => {
-  const [showAll, setShowAll] = useState(false)
-  const [searchTerm, setSearchTerm] = useState('')
   const [currentScreen, setCurrentScreen] = useState('home')
   // set background color
   document.body.className = currentScreen === 'all' ? 'white-background' : ''
 
   const restaurants = useTracker(() => {
-    const query = showAll ? {} : { name: { $regex: searchTerm, $options: 'i' } }
-    return RestaurantsCollection.find(query).fetch()
-  })
+   
+    return RestaurantsCollection.find().fetch();
+  });
 
   const handleShowAllRestaurants = () => {
     setCurrentScreen('all')
@@ -24,6 +23,7 @@ export const App = () => {
   const handleBackBtn = () => {
     setCurrentScreen('home')
   }
+
 
   return (
     <>
@@ -44,11 +44,11 @@ export const App = () => {
       )}
 
       {currentScreen === 'all' && (
-        <div className='all-container'>
-          <ul>
-            <button onClick={handleBackBtn} className='btn-standard'>
-              Back
+        <>
+        <button onClick={handleBackBtn} className='btn-standard'>
+              <KeyboardBackspaceOutlinedIcon></KeyboardBackspaceOutlinedIcon>
             </button>
+          <ul className='restaurant-list'>
             {restaurants.map((restaurant) => (
               <Restaurant
                 key={restaurant._id}
@@ -62,7 +62,7 @@ export const App = () => {
               />
             ))}
           </ul>
-        </div>
+</>
       )}
     </>
   )

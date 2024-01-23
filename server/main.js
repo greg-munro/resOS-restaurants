@@ -12,7 +12,7 @@ Meteor.startup(() => {
       tags: ['Local', 'Mediterranean'],
       status: 'Closed',
       creation_date: '10/01/2023',
-      opening_hours: ['12:00 -16:00', '18:00 - 23:00'],
+      opening_hours: ['12:00 - 16:00', '18:00 - 23:00'],
       image: 'https://www.equinoxmagazine.fr/wp-content/uploads/2023/04/bodega-picarol.jpg'
     },
     {
