@@ -67,6 +67,7 @@ input[type="search"] {
   transition-property: width, border-radius;
   z-index: 1;
   position: relative;
+  font-size: 1.5rem;
 }
 .search-submit {
   display: none; 
@@ -122,7 +123,16 @@ input:not(:placeholder-shown) {
     padding: 10px;
     cursor: pointer;
   }
+  &.status {
+    width: 50px;
+    height: 25px;
+    padding: 5px 10px;
+    display: flex;
+  }
 }
 .white-background {
   background-color: #fff;
+}
+.restaurant-card {
+  margin: 15px;
 }

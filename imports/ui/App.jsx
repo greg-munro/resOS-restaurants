@@ -53,6 +53,10 @@ export const App = () => {
               <Restaurant
                 key={restaurant._id}
                 name={restaurant.name}
+                address={restaurant.address}
+                tags={restaurant.tags}
+                status={restaurant.status}
+                creation_date={restaurant.creation_date}
                 openingHours={restaurant.opening_hours}
                 image={restaurant.image}
               />

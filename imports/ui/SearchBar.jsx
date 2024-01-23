@@ -8,7 +8,7 @@ export const SearchBar = ({ onSearch }) => {
 
   return (
 <form onSubmit='event.preventDefault()' role="search">
-  <label className="search-label" for="search">Search for stuff</label>
+  <label className="search-label" for="search">Search for a restaurant</label>
   <input id="search" type="search" placeholder="Search..." autoComplete='off' />
   <button className="search-submit" type="submit">Go</button>    
 </form>
