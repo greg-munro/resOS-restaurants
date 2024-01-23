@@ -9,10 +9,10 @@ const CuisineBtn = () => {
   
   return (
     <div className='cuisine-icons'>
-        <LocalPizzaIcon fontSize='large' className='cuisine-button'></LocalPizzaIcon>
-        <FastfoodIcon  fontSize='large'className='cuisine-button'></FastfoodIcon>
-        <RamenDiningIcon fontSize='large' className='cuisine-button' />
-        <IcecreamIcon  fontSize='large' className='cuisine-button' />
+        <LocalPizzaIcon fontSize='large' className='btn-standard cuisine'></LocalPizzaIcon>
+        <FastfoodIcon  fontSize='large' className='btn-standard cuisine'></FastfoodIcon>
+        <RamenDiningIcon fontSize='large' className='btn-standard cuisine' />
+        <IcecreamIcon  fontSize='large' className='btn-standard cuisine' />
     </div>
   )
 }

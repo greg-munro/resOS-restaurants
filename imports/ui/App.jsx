@@ -16,8 +16,11 @@ export const App = () => {
     return RestaurantsCollection.find(query).fetch()
   })
 
-  const handleSearch = (term) => {
-    setSearchTerm(term)
+  const handleShowAllRestaurants = () => {
+    setCurrentScreen('all')
+  }
+  const handleBackBtn = () => {
+    setCurrentScreen('home')
   }
 
   return (
@@ -29,15 +32,16 @@ export const App = () => {
               src='/assets/resos-logos-idgmzEl7lk.svg'
               className='resos-logo'
             ></img>
-            <SearchBar onSearch={handleSearch} />
+            <SearchBar />
             <CuisineBtn />
-            <button className='btn-standard'>All Restaurants</button>
+            <button className='btn-standard' onClick={handleShowAllRestaurants}>All Restaurants</button>
           </div>
         </>
       )}
 
-      {showAll && (
+      {currentScreen === 'all' && (
         <ul>
+        <button onClick={handleBackBtn} className='btn-standard'>Back</button>
           {restaurants.map((restaurant) => (
             <Restaurant
               key={restaurant._id}
