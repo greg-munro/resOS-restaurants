@@ -5,6 +5,8 @@ import { Restaurant } from './Restaurant';
 import { RestaurantsCollection } from '../api/RestaurantsCollection';
 import { SearchBar } from './SearchBar';
 
+
+
 export const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
