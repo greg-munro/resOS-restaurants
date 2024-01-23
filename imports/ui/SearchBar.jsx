@@ -7,10 +7,10 @@ export const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <input
-      type="text"
-      placeholder="Search..."
-      onChange={handleInputChange}
-    />
+<form onsubmit="event.preventDefault();" role="search">
+  <label for="search">Search for stuff</label>
+  <input id="search" type="search" placeholder="Search..." autofocus required autoComplete='off' />
+  <button type="submit">Go</button>    
+</form>
   );
 };
