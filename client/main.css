@@ -223,13 +223,16 @@ input:not(:placeholder-shown) {
     color: white;
   }
 .restaurant-card {
-  background-color: #454761;
+  background-color: #60639a;
 }
 .nav-bar {
-  background-color: #454761;
+  background-color: #8385a6;
 }
 
 .MuiButtonBase-root {
+  color: black;
+}
+#search {
   color: black;
 }
 }
@@ -259,7 +262,7 @@ input:not(:placeholder-shown) {
     cursor: pointer;
   }
   .nav-bar {
-    justify-content: flex-start;
+    justify-content: space-evenly;
     background-color: #ecf5fe;;
   }
   .filter {
