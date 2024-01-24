@@ -1,8 +1,7 @@
 # resOS Restaurant Finder App
 
-<center>
 ![ResOS Logo](https://media.tekpon.com/2023/05/resOS-Logo.webp)
-</center>
+
 Welcome to the Restaurant Finder App! This web application allows users to search and explore different restaurants based on various criteria.
 
 ## Features
