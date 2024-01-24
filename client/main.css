@@ -109,10 +109,10 @@ input:not(:placeholder-shown) {
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
-  height: 48px;
+  height: 37px;
   justify-content: center;
-  padding: 2px 24px;
-  margin: 20px 0;
+  padding: 0px 9px;
+  margin: 12px 0;
   &.cuisine {
     fill: rgb(50, 80, 161);
     width: 50px;
@@ -129,6 +129,12 @@ input:not(:placeholder-shown) {
     padding: 5px 10px;
     display: flex;
   }
+  &.all {
+    height: 48px;
+    justify-content: center;
+    padding: 2px 24px;
+    margin: 20px 0;
+  }
 }
 .white-background {
   background-color: #fff;
@@ -138,6 +144,27 @@ input:not(:placeholder-shown) {
 }
 .restaurant-list {
   display: flex;
-    flex-direction: column;
-    width: 80%;
+  flex-direction: column;
+  width: 80%;
+  margin: 100px 0;
+}
+.detail-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.greeting {
+  margin: 0 15px;
+}
+.nav-bar {
+  background-color: #adb8ee;
+  height: 50px;
+  width: 100vw;
+  position: absolute;
+  margin: 0 0 10px 0;
+  left: 0;
+  top: 100px;
+  padding: 15px 0px;
+  display: flex;
+  justify-content: space-evenly;
 }
