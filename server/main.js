@@ -65,7 +65,7 @@ Meteor.startup(() => {
       tags: ['Japanese', 'Sushi'],
       status: 'Open',
       creation_date: '05/04/2023',
-      opening_hours: ['11:00 - 00:30'],
+      opening_hours: ['11:00 - 23:30'],
       image: 'https://d267qvt8mf7rfa.cloudfront.net/restaurant/256/mainImage.jpg'
     },
     {
@@ -74,7 +74,7 @@ Meteor.startup(() => {
       tags: ['Italian', 'Pizza'],
       status: 'Open',
       creation_date: '05/04/2023',
-      opening_hours: ['11:00 - 00:30'],
+      opening_hours: ['11:00 - 23:30'],
       image: 'https://assets.bonappetit.com/photos/5ca680eff7c9b51309c95d26/16:9/w_2560%2Cc_limit/luigis-2.jpg'
     },
     {

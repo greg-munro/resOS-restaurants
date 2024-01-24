@@ -13,12 +13,29 @@ export const Restaurant = ({
   image,
 }) => {
   const getCurrentTime = () => {
-    const now = new Date()
-    const time = now.getHours() * 100 + now.getMinutes() // Convert hours and minutes to a 24-hour format
-  }
+    const now = new Date();
+    return now;
+  };
+
+  // Check if the current time is within any of the opening hour ranges
+  const isOpen = openingHours.some(schedule => {
+    const [startHour, startMinute, endHour, endMinute] = schedule
+      .split(/[^\d]+/)
+      .map(Number);
+
+    const startTime = new Date();
+    startTime.setHours(startHour, startMinute);
+
+    const endTime = new Date();
+    endTime.setHours(endHour, endMinute);
+
+    const currentTime = getCurrentTime();
+
+    return currentTime >= startTime && currentTime <= endTime;
+  });
 
   const buttonStyle = {
-    backgroundColor: status === 'Open' ? '#6AA84F' : '#C0C0C0',
+    backgroundColor: isOpen ? '#6AA84F' : '#C0C0C0',
   }
 
   return (
@@ -29,7 +46,7 @@ export const Restaurant = ({
           <div className='card-header'>
             <h3>{name}</h3>
             <span className='btn-standard status' style={buttonStyle}>
-              {status}
+              {isOpen ? 'Open': 'Closed'}
             </span>
           </div>
 
