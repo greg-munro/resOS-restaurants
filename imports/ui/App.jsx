@@ -15,7 +15,6 @@ export const App = () => {
   const [selectedStatus, setSelectedStatus] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
 
-  // set background color
   document.body.className = currentScreen === 'all' ? 'white-background' : ''
 
   const restaurants = useTracker(() => {
@@ -49,10 +48,10 @@ export const App = () => {
     setCurrentScreen('all')
   }
 
-  const transformSearchBar = () => {
-    const searchBar = document.getElementById('search-form')
-    searchBar.classList.add('search-bar-transform')
-  }
+  // const transformSearchBar = () => {
+  //   const searchBar = document.getElementById('search-form')
+  //   searchBar.classList.add('search-bar-transform')
+  // }
 
   return (
     <>
@@ -107,6 +106,7 @@ export const App = () => {
                   creation_date={restaurant.creation_date}
                   openingHours={restaurant.opening_hours}
                   image={restaurant.image}
+
                 />
               ))}
             </ul>
@@ -115,6 +115,7 @@ export const App = () => {
               No restaurants found with the search term.
             </p>
           )}
+          
         </>
       )}
     </>
