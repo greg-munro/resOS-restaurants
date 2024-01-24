@@ -6,9 +6,10 @@ body {
   /* background-color: rgb(186, 133, 203); */
   height: 100vh;
   background: #482B5A;
-background: linear-gradient(90deg, rgba(91,43,135,1) 0%,#482B5A 74%);
+  background: linear-gradient(90deg, rgba(91, 43, 135, 1) 0%, #482B5A 74%);
 }
 
+/*Home search styles*/
 .home-search {
   display: flex;
   flex-direction: column;
@@ -19,10 +20,12 @@ background: linear-gradient(90deg, rgba(91,43,135,1) 0%,#482B5A 74%);
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .resos-logo {
   width: 300px;
   margin: 10px;
 }
+
 .cuisine-icons {
   width: 100%;
   margin-top: 50px;
@@ -30,64 +33,59 @@ background: linear-gradient(90deg, rgba(91,43,135,1) 0%,#482B5A 74%);
   justify-content: center;
 }
 
-:root {
-  --rad: .7rem;
-  --dur: .3s;
-  --color-dark: #2f2f2f;
-  --color-light: #fff;
-  --color-brand: #57bd84;
-  --font-fam: 'Lato', sans-serif;
-  --height: 5rem;
-  --btn-width: 6rem;
-  --bez: cubic-bezier(0, 0, 0.43, 1.49);
-}
-
+/*search box form*/
 form {
   position: relative;
   width: 80%;
   height: 50px;
-  background: var(--color-brand);
-  border-radius: var(--rad);
+  background: #57bd84;
+  border-radius: .7rem;
   margin: 50px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 }
-input, button {
-  height: var(--height);
-  font-family: var(--font-fam);
+
+input,
+button {
+  height: 5rem;
   border: 0;
-  color: var(--color-dark);
+  color: #2f2f2f;
   font-size: 1.8rem;
 }
+
 input[type="search"] {
-  outline: 0; 
+  outline: 0;
   width: 100%;
-  background: var(--color-light);
+  background: #fff;
   padding: 0 1.6rem;
-  border-radius: var(--rad);
+  border-radius: .7rem;
   appearance: none;
-  transition: all var(--dur) var(--bez);
+  transition: all .3s cubic-bezier(0, 0, 0.43, 1.49);
   transition-property: width, border-radius;
   z-index: 1;
   position: relative;
   font-size: 1.5rem;
 }
+
 .search-submit {
-  display: none; 
+  display: none;
   position: absolute;
   top: 0;
   right: 0;
-  width: var(--btn-width);
+  width: 6rem;
   font-weight: bold;
-  background: var(--color-brand);
+  background: #57bd84;
   border-radius: 0 var(--rad) var(--rad) 0;
 }
+
 input:not(:placeholder-shown) {
-  border-radius: var(--rad) 0 0 var(--rad);
-  width: calc(100% - var(--btn-width));
-  + button {
+  border-radius: .7rem 0 0 .7rem;
+  width: calc(100% - 6rem);
+
+  +button {
     display: block;
   }
 }
+
 .search-label {
   position: absolute;
   clip: rect(1px, 1px, 1px, 1px);
@@ -98,69 +96,36 @@ input:not(:placeholder-shown) {
   overflow: hidden;
 }
 
+
+/*All restaurants page*/
 .show-all {
   display: block;
   width: 50px;
   overflow: none;
-}
-.btn-standard {
-  align-items: center;
-  background-color: #fff;
-  border-radius: 24px;
-  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px, rgba(0, 0, 0, .14) 0 6px 10px 0, rgba(0, 0, 0, .12) 0 1px 18px 0;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  height: 37px;
-  justify-content: center;
-  padding: 0px 9px;
-  margin: 12px 0;
-  &.cuisine {
-    fill: rgb(64 65 115);
-    width: 50px;
-    background-color: rgb(255, 254, 254);
-    margin: 10px;
-    border-radius: 50%;
-    object-fit: contain;
-    padding: 10px;
-    cursor: pointer;
-  }
-  &.status {
-    width: 50px;
-    height: 25px;
-    padding: 5px 10px;
-    display: flex;
-  }
-  &.all {
-    height: 48px;
-    justify-content: center;
-    padding: 2px 24px;
-    margin: 20px 0;
-    background-color: #FBC720;
-  }
-}
-.btn-standard.all:hover {
-  background-color: white;
 }
 
 .white-background {
   background-color: #fff;
   background: none;
 }
+
 .restaurant-card {
   margin: 15px;
 }
+
 .restaurant-list {
   display: flex;
   flex-direction: column;
   width: 80%;
   margin: 100px 0;
 }
+
 .detail-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .header-top {
   width: 100vw;
   display: flex;
@@ -172,6 +137,7 @@ input:not(:placeholder-shown) {
   margin: 0 15px;
   font-weight: 300;
 }
+
 .nav-bar {
   background-color: #f3f3f3;
   height: 50px;
@@ -185,17 +151,65 @@ input:not(:placeholder-shown) {
   justify-content: space-evenly;
   align-items: center;
 }
-.light-font {
-  font-weight: 200;
-  color: #8282c2;
-}
+
 .not-found {
   position: absolute;
   top: 50%;
   left: 10%;
   color: red;
 }
+
 .card-header {
   display: flex;
   justify-content: space-between;
+}
+
+/*Misc*/
+.light-font {
+  font-weight: 200;
+  color: #8282c2;
+}
+
+.btn-standard {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 24px;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px, rgba(0, 0, 0, .14) 0 6px 10px 0, rgba(0, 0, 0, .12) 0 1px 18px 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  height: 37px;
+  justify-content: center;
+  padding: 0px 9px;
+  margin: 12px 0;
+
+  &.cuisine {
+    fill: rgb(64 65 115);
+    width: 50px;
+    background-color: rgb(255, 254, 254);
+    margin: 10px;
+    border-radius: 50%;
+    object-fit: contain;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  &.status {
+    width: 50px;
+    height: 25px;
+    padding: 5px 10px;
+    display: flex;
+  }
+
+  &.all {
+    height: 48px;
+    justify-content: center;
+    padding: 2px 24px;
+    margin: 20px 0;
+    background-color: #FBC720;
+  }
+}
+
+.btn-standard.all:hover {
+  background-color: white;
 }

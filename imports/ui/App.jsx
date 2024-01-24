@@ -22,6 +22,38 @@ export const App = () => {
     return RestaurantsCollection.find().fetch();
   });
 
+  const resetFilters = () => {
+    setSelectedFilter('');
+    setSelectedStatus('');
+    setSearchTerm('');
+    setSelectedCuisine('');
+  };
+  
+  const handleShowAllRestaurants = () => {
+    resetFilters();
+    setCurrentScreen('all');
+  };
+  
+  const handleBackBtn = () => {
+    resetFilters();
+    setCurrentScreen('home');
+  };
+  
+  const handleSearch = (term) => {
+    resetFilters();
+    setSearchTerm(term);
+    setCurrentScreen('all');
+  };
+  
+  const handleCuisineClick = (cuisine) => {
+    resetFilters();
+    setCurrentScreen('all');
+    setSelectedCuisine(cuisine);
+    console.log(cuisine)
+
+  };
+  
+
   const filteredRestaurants = restaurants.filter((restaurant) => {
     const styleMatch = !selectedFilter || restaurant.tags.includes(selectedFilter);
     const statusMatch = !selectedStatus || restaurant.status === selectedStatus;
@@ -29,28 +61,9 @@ export const App = () => {
       !searchTerm ||
       restaurant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       restaurant.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-
-    return styleMatch && statusMatch && searchMatch
+      const cuisineMatch = !selectedCuisine || restaurant.tags.includes(selectedCuisine);
+    return styleMatch && statusMatch && searchMatch && cuisineMatch;
   });
-
-  const handleShowAllRestaurants = () => {
-    setSearchTerm('');
-    setCurrentScreen('all');
-  };
-
-  const handleBackBtn = () => {
-    setCurrentScreen('home');
-  };
-
-  const handleSearch = (term) => {
-    setSearchTerm(term);
-    setCurrentScreen('all');
-  };
-
-  const handleCuisineClick = (cuisine) => {
-    setSelectedCuisine(cuisine);
-    setCurrentScreen('all')
-  };
 
   return (
     <>

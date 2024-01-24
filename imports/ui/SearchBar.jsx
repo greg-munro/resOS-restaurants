@@ -10,7 +10,7 @@ export const SearchBar = ({ onSubmit }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(searchTerm, ()=> console.log('clicked'));
+    onSubmit(searchTerm);
   };
 
   return (
