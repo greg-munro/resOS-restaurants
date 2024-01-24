@@ -173,3 +173,9 @@ input:not(:placeholder-shown) {
 .light-font {
   font-weight: 100;
 }
+.not-found {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  color: red;
+}

@@ -48,44 +48,44 @@ export const App = () => {
   }
 
   return (
-    <>
-      {currentScreen === 'home' && (
-        <>
-          <div className='home-search'>
-            <img
-              src='/assets/resos-logos-idgmzEl7lk.svg'
-              className='resos-logo'
-            ></img>
-           <SearchBar onSubmit={handleSearch} />
+  <>
+    {currentScreen === 'home' && (
+      <>
+        <div className='home-search'>
+          <img
+            src='/assets/resos-logos-idgmzEl7lk.svg'
+            className='resos-logo'
+          ></img>
+          <SearchBar onSubmit={handleSearch} />
+          <CuisineBtn />
+          <button
+            className='btn-standard all'
+            onClick={handleShowAllRestaurants}
+          >
+            All Restaurants
+          </button>
+        </div>
+      </>
+    )}
 
-            <CuisineBtn />
-            <button
-              className='btn-standard all'
-              onClick={handleShowAllRestaurants}
-            >
-              All Restaurants
-            </button>
-          </div>
-        </>
-      )}
+    {currentScreen === 'all' && (
+      <>
+        <div className='detail-header'>
+          <button onClick={handleBackBtn} className='btn-standard'>
+            <KeyboardBackspaceOutlinedIcon></KeyboardBackspaceOutlinedIcon>
+          </button>
+          <Greeting />
+        </div>
 
-      {currentScreen === 'all' && (
-        <>
-          <div className='detail-header'>
-            <button onClick={handleBackBtn} className='btn-standard'>
-              <KeyboardBackspaceOutlinedIcon></KeyboardBackspaceOutlinedIcon>
-            </button>
-            <Greeting />
-          </div>
+        <FilterBar
+          restaurantsData={restaurants}
+          selectedFilter={selectedFilter}
+          setSelectedFilter={setSelectedFilter}
+          selectedStatus={selectedStatus}
+          setSelectedStatus={setSelectedStatus}
+        />
 
-          <FilterBar
-            restaurantsData={restaurants}
-            selectedFilter={selectedFilter}
-            setSelectedFilter={setSelectedFilter}
-            selectedStatus={selectedStatus}
-            setSelectedStatus={setSelectedStatus}
-          />
-
+        {filteredRestaurants.length > 0 ? (
           <ul className='restaurant-list'>
             {filteredRestaurants.map((restaurant) => (
               <Restaurant
@@ -100,8 +100,11 @@ export const App = () => {
               />
             ))}
           </ul>
-        </>
-      )}
-    </>
+        ) : (
+          <p className='not-found'>No restaurants found with the search term.</p>
+        )}
+      </>
+    )}
+  </>
   )
 }
