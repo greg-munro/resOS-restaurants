@@ -1,4 +1,6 @@
-# Restaurant Finder App
+# resOS Restaurant Finder App
+
+![ResOS Logo](https://resos.com/wp-content/uploads/2019/08/resos-some-1200x1200.png)
 
 Welcome to the Restaurant Finder App! This web application allows users to search and explore different restaurants based on various criteria.
 
