@@ -23,7 +23,7 @@ Welcome to the Restaurant Finder App! This web application allows users to searc
   - Material-UI Icons
   - Meteor (data-management)
 
-  - **Backend:**
+- **Backend:**
   - Meteor (MongoDB)
 
 - **Styling:**
