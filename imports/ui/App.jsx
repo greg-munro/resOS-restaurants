@@ -29,9 +29,8 @@ export const App = () => {
       !searchTerm ||
       restaurant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       restaurant.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-    const cuisineMatch = restaurant.tags.includes(selectedCuisine);
 
-    return styleMatch && statusMatch && searchMatch && cuisineMatch;
+    return styleMatch && statusMatch && searchMatch
   });
 
   const handleShowAllRestaurants = () => {
