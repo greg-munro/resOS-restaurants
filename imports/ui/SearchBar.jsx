@@ -1,6 +1,7 @@
+// SearchBar.js
 import React, { useState } from 'react';
 
-export const SearchBar = ({ onSearch }) => {
+export const SearchBar = ({ onSubmit }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleInputChange = (event) => {
@@ -9,7 +10,7 @@ export const SearchBar = ({ onSearch }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSearch(searchTerm);
+    onSubmit(searchTerm, ()=> console.log('clicked'));
   };
 
   return (

@@ -13,6 +13,7 @@ export const App = () => {
   const [currentScreen, setCurrentScreen] = useState('home')
   const [selectedFilter, setSelectedFilter] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
   // set background color
   document.body.className = currentScreen === 'all' ? 'white-background' : ''
@@ -24,9 +25,14 @@ export const App = () => {
   const filteredRestaurants = restaurants.filter((restaurant) => {
     const styleMatch = !selectedFilter || restaurant.tags.includes(selectedFilter);
     const statusMatch = !selectedStatus || restaurant.status === selectedStatus;
+    const searchMatch =
+    !searchTerm ||
+    restaurant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    restaurant.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()))
 
-    return styleMatch && statusMatch;
+  return styleMatch && statusMatch && searchMatch;
   });
+
 
 
   const handleShowAllRestaurants = () => {
@@ -34,6 +40,11 @@ export const App = () => {
   }
   const handleBackBtn = () => {
     setCurrentScreen('home')
+  }
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+    setCurrentScreen('all')
   }
 
   return (
@@ -45,7 +56,8 @@ export const App = () => {
               src='/assets/resos-logos-idgmzEl7lk.svg'
               className='resos-logo'
             ></img>
-            <SearchBar />
+           <SearchBar onSubmit={handleSearch} />
+
             <CuisineBtn />
             <button
               className='btn-standard all'
