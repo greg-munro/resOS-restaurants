@@ -20,7 +20,7 @@ export const Restaurant = ({ name, address, tags, status, creation_date, opening
         <CardMedia sx={{ height: 130 }} image={image} title={name} />
         <CardContent>
           <h3>{name}</h3>
-          <span>{tags.join(', ')}</span>
+          <span class="light-font">{tags.join(', ')}</span>
           <p className="btn-standard status" style={buttonStyle}>{status}</p>
         </CardContent>
       </Card>

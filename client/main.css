@@ -150,11 +150,12 @@ input:not(:placeholder-shown) {
 }
 .detail-header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 .greeting {
   margin: 0 15px;
+  font-weight: 300;
 }
 .nav-bar {
   background-color: #adb8ee;
@@ -167,4 +168,7 @@ input:not(:placeholder-shown) {
   padding: 15px 0px;
   display: flex;
   justify-content: space-evenly;
+}
+.light-font {
+  font-weight: 100;
 }

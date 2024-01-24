@@ -9,14 +9,21 @@ import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspace
 import Greeting from './Greeting'
 import FilterBar from './FilterBar'
 
-export const App = ( ) => {
+export const App = () => {
   const [currentScreen, setCurrentScreen] = useState('home')
+  const [selectedFilter, setSelectedFilter] = useState('')
   // set background color
   document.body.className = currentScreen === 'all' ? 'white-background' : ''
 
   const restaurants = useTracker(() => {
     return RestaurantsCollection.find().fetch()
   })
+
+  const filteredRestaurants = selectedFilter
+    ? restaurants.filter((restaurant) =>
+        restaurant.tags.includes(selectedFilter)
+      )
+    : restaurants
 
   const handleShowAllRestaurants = () => {
     setCurrentScreen('all')
@@ -36,7 +43,10 @@ export const App = ( ) => {
             ></img>
             <SearchBar />
             <CuisineBtn />
-            <button className='btn-standard all' onClick={handleShowAllRestaurants}>
+            <button
+              className='btn-standard all'
+              onClick={handleShowAllRestaurants}
+            >
               All Restaurants
             </button>
           </div>
@@ -52,10 +62,14 @@ export const App = ( ) => {
             <Greeting />
           </div>
 
-          <FilterBar restaurantsData={restaurants} />
+          <FilterBar
+            restaurantsData={restaurants}
+            selectedFilter={selectedFilter}
+            setSelectedFilter={setSelectedFilter}
+          />
 
           <ul className='restaurant-list'>
-            {restaurants.map((restaurant) => (
+            {filteredRestaurants.map((restaurant) => (
               <Restaurant
                 key={restaurant._id}
                 name={restaurant.name}

@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor'
 import { RestaurantsCollection } from '../imports/api/RestaurantsCollection'
 
-// in here you are exporting the data to the server
 Meteor.startup(() => {
   RestaurantsCollection.remove({})
 
@@ -9,7 +8,7 @@ Meteor.startup(() => {
     {
       name: 'Bodega Picarol',
       address: 'Carrer de Valencia 224',
-      tags: ['Local', 'Mediterranean'],
+      tags: ['Spanish', 'Mediterranean'],
       status: 'Closed',
       creation_date: '10/01/2023',
       opening_hours: ['12:00 - 16:00', '18:00 - 23:00'],
@@ -54,7 +53,7 @@ Meteor.startup(() => {
     {
       name: 'Bodega Quimet',
       address: 'Carrer de Enric Granados 180',
-      tags: ['Local', 'Mediterranean'],
+      tags: ['Spanish', 'Mediterranean'],
       status: 'Closed',
       creation_date: '10/01/2023',
       opening_hours: ['12:00 -16:00', '18:00 - 23:00'],
