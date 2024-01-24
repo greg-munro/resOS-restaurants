@@ -11,7 +11,9 @@ import FilterBar from './FilterBar'
 
 export const App = () => {
   const [currentScreen, setCurrentScreen] = useState('home')
-  const [selectedFilter, setSelectedFilter] = useState('')
+  const [selectedFilter, setSelectedFilter] = useState('');
+  const [selectedStatus, setSelectedStatus] = useState('');
+
   // set background color
   document.body.className = currentScreen === 'all' ? 'white-background' : ''
 
@@ -19,11 +21,13 @@ export const App = () => {
     return RestaurantsCollection.find().fetch()
   })
 
-  const filteredRestaurants = selectedFilter
-    ? restaurants.filter((restaurant) =>
-        restaurant.tags.includes(selectedFilter)
-      )
-    : restaurants
+  const filteredRestaurants = restaurants.filter((restaurant) => {
+    const styleMatch = !selectedFilter || restaurant.tags.includes(selectedFilter);
+    const statusMatch = !selectedStatus || restaurant.status === selectedStatus;
+
+    return styleMatch && statusMatch;
+  });
+
 
   const handleShowAllRestaurants = () => {
     setCurrentScreen('all')
@@ -66,6 +70,8 @@ export const App = () => {
             restaurantsData={restaurants}
             selectedFilter={selectedFilter}
             setSelectedFilter={setSelectedFilter}
+            selectedStatus={selectedStatus}
+            setSelectedStatus={setSelectedStatus}
           />
 
           <ul className='restaurant-list'>
