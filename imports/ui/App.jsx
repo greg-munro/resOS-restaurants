@@ -8,6 +8,8 @@ import CuisineBtn from './CuisineBtn'
 import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined'
 import Greeting from './Greeting'
 import FilterBar from './FilterBar'
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
+import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined'
 
 export const App = () => {
   const [currentScreen, setCurrentScreen] = useState('home')
@@ -15,8 +17,16 @@ export const App = () => {
   const [selectedStatus, setSelectedStatus] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCuisine, setSelectedCuisine] = useState('')
+  const [darkMode, setDarkMode] = useState(false)
 
-  document.body.className = currentScreen === 'all' ? 'white-background' : ''
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode)
+  }
+
+  document.body.className = `${darkMode ? 'dark-mode' : ''} ${
+    currentScreen === 'all' ? 'white-background' : ''
+  }`
 
   const restaurants = useTracker(() => {
     return RestaurantsCollection.find().fetch()
@@ -95,6 +105,11 @@ export const App = () => {
               <KeyboardBackspaceOutlinedIcon />
             </button>
             <Greeting />
+            <div className='toggle-dark-mode'>
+              <button className='toggle' onClick={toggleDarkMode}>
+                {darkMode ? <WbSunnyOutlinedIcon /> : <DarkModeOutlinedIcon />}
+              </button>
+            </div>
           </div>
 
           <FilterBar
@@ -104,6 +119,7 @@ export const App = () => {
             selectedStatus={selectedStatus}
             setSelectedStatus={setSelectedStatus}
             resetFilters={resetFilters}
+            darkMode={darkMode}
           />
 
           {filteredRestaurants.length > 0 ? (

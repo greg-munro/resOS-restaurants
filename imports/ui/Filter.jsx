@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function Filter({ label, options, selectedValue, setSelectedValue, resetFilters }) {
+export default function Filter({ label, options, selectedValue, setSelectedValue, resetFilters, darkMode }) {
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value, resetFilters())
@@ -14,12 +14,11 @@ export default function Filter({ label, options, selectedValue, setSelectedValue
     <FormControl sx={{ m: 0.5, minWidth: 120 }} size='small'>
       <InputLabel id='demo-select-small-label'>{label}</InputLabel>
       <Select
-        labelId='demo-select-small-label'
-        id='demo-select-small'
+        labelId='filter-value'
+        id='filter-value'
         value={selectedValue}
         label={label}
         onChange={handleChange}
-        className='filter'
       >
         {options &&
           options.map((option) => (

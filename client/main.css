@@ -213,7 +213,26 @@ input:not(:placeholder-shown) {
 .btn-standard.all:hover {
   background-color: white;
 }
+.toggle {
+  height: 10px;
+  background: none;
+}
+.dark-mode {
+  background-color: #6e4b83;
+  * {
+    color: white;
+  }
+.restaurant-card {
+  background-color: #454761;
+}
+.nav-bar {
+  background-color: #454761;
+}
 
+.MuiButtonBase-root {
+  color: black;
+}
+}
 
 /* Media Query for Desktop Styles */
 @media only screen and (min-width: 768px) {
