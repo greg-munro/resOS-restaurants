@@ -41,17 +41,19 @@ Welcome to the Restaurant Finder App! This web application allows users to searc
    npm install
 
 3. Run the app:
-Open one terminal and run:
-  ```bash 
-    meteor run
+Open one terminal and run
 
-Open a second terminal and run:
+  ```bash
+  meteor run
+```
 
-```bash 
+Open a second terminal and run
+
+  ```bash
   meteor mongo
+  ```
 
-
-Usage
+## Usage 
 Open the app in your browser.
 Explore restaurants by using the search bar, cuisine buttons, or view all restaurants.
 On the "All Restaurants" page, use filters to narrow down your search.
