@@ -14,7 +14,7 @@ export const SearchBar = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} role="search">
+    <form id='search-form' onSubmit={handleSubmit} role="search">
       <label className="search-label" htmlFor="search">
         Search for a restaurant
       </label>

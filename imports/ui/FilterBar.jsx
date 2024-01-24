@@ -23,6 +23,7 @@ const FilterBar = ({ restaurantsData, selectedFilter, setSelectedFilter, selecte
         options={tags}
         selectedValue={selectedFilter}
         setSelectedValue={setSelectedFilter}
+
       />
       <Filter
         label='Status'

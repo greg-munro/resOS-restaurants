@@ -11,9 +11,9 @@ import FilterBar from './FilterBar'
 
 export const App = () => {
   const [currentScreen, setCurrentScreen] = useState('home')
-  const [selectedFilter, setSelectedFilter] = useState('');
-  const [selectedStatus, setSelectedStatus] = useState('');
-  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedFilter, setSelectedFilter] = useState('')
+  const [selectedStatus, setSelectedStatus] = useState('')
+  const [searchTerm, setSearchTerm] = useState('')
 
   // set background color
   document.body.className = currentScreen === 'all' ? 'white-background' : ''
@@ -23,19 +23,21 @@ export const App = () => {
   })
 
   const filteredRestaurants = restaurants.filter((restaurant) => {
-    const styleMatch = !selectedFilter || restaurant.tags.includes(selectedFilter);
-    const statusMatch = !selectedStatus || restaurant.status === selectedStatus;
+    const styleMatch =
+      !selectedFilter || restaurant.tags.includes(selectedFilter)
+    const statusMatch = !selectedStatus || restaurant.status === selectedStatus
     const searchMatch =
-    !searchTerm ||
-    restaurant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    restaurant.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+      !searchTerm ||
+      restaurant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      restaurant.tags.some((tag) =>
+        tag.toLowerCase().includes(searchTerm.toLowerCase())
+      )
 
-  return styleMatch && statusMatch && searchMatch;
-  });
-
-
+    return styleMatch && statusMatch && searchMatch
+  })
 
   const handleShowAllRestaurants = () => {
+    setSearchTerm('')
     setCurrentScreen('all')
   }
   const handleBackBtn = () => {
@@ -43,68 +45,78 @@ export const App = () => {
   }
 
   const handleSearch = (term) => {
-    setSearchTerm(term);
+    setSearchTerm(term)
     setCurrentScreen('all')
   }
 
+  const transformSearchBar = () => {
+    const searchBar = document.getElementById('search-form')
+    searchBar.classList.add('search-bar-transform')
+  }
+
   return (
-  <>
-    {currentScreen === 'home' && (
-      <>
-        <div className='home-search'>
-          <img
-            src='/assets/resos-logos-idgmzEl7lk.svg'
-            className='resos-logo'
-          ></img>
-          <SearchBar onSubmit={handleSearch} />
-          <CuisineBtn />
-          <button
-            className='btn-standard all'
-            onClick={handleShowAllRestaurants}
-          >
-            All Restaurants
-          </button>
-        </div>
-      </>
-    )}
+    <>
+      {currentScreen === 'home' && (
+        <>
+          <div className='home-search'>
+            <img
+              src='/assets/resos-logos-idgmzEl7lk.svg'
+              className='resos-logo'
+            ></img>
+            <SearchBar onSubmit={handleSearch} />
+            <CuisineBtn />
+            <button
+              className='btn-standard all'
+              onClick={handleShowAllRestaurants}
+            >
+              All Restaurants
+            </button>
+          </div>
+        </>
+      )}
 
-    {currentScreen === 'all' && (
-      <>
-        <div className='detail-header'>
-          <button onClick={handleBackBtn} className='btn-standard'>
-            <KeyboardBackspaceOutlinedIcon></KeyboardBackspaceOutlinedIcon>
-          </button>
-          <Greeting />
-        </div>
+      {currentScreen === 'all' && (
+        <>
+          {/* {transformSearchBar()} */}
+          <div className='detail-header'>
 
-        <FilterBar
-          restaurantsData={restaurants}
-          selectedFilter={selectedFilter}
-          setSelectedFilter={setSelectedFilter}
-          selectedStatus={selectedStatus}
-          setSelectedStatus={setSelectedStatus}
-        />
+              <button onClick={handleBackBtn} className='btn-standard'>
+                <KeyboardBackspaceOutlinedIcon></KeyboardBackspaceOutlinedIcon>
+              </button>
+              <Greeting />
 
-        {filteredRestaurants.length > 0 ? (
-          <ul className='restaurant-list'>
-            {filteredRestaurants.map((restaurant) => (
-              <Restaurant
-                key={restaurant._id}
-                name={restaurant.name}
-                address={restaurant.address}
-                tags={restaurant.tags}
-                status={restaurant.status}
-                creation_date={restaurant.creation_date}
-                openingHours={restaurant.opening_hours}
-                image={restaurant.image}
-              />
-            ))}
-          </ul>
-        ) : (
-          <p className='not-found'>No restaurants found with the search term.</p>
-        )}
-      </>
-    )}
-  </>
+          </div>
+
+          <FilterBar
+            restaurantsData={restaurants}
+            selectedFilter={selectedFilter}
+            setSelectedFilter={setSelectedFilter}
+            selectedStatus={selectedStatus}
+            setSelectedStatus={setSelectedStatus}
+          />
+
+          {filteredRestaurants.length > 0 ? (
+            <ul className='restaurant-list'>
+              {filteredRestaurants.map((restaurant) => (
+                <Restaurant
+                  key={restaurant._id}
+                  name={restaurant.name}
+                  address={restaurant.address}
+                  tags={restaurant.tags}
+                  status={restaurant.status}
+                  creation_date={restaurant.creation_date}
+                  openingHours={restaurant.opening_hours}
+                  image={restaurant.image}
+                />
+              ))}
+            </ul>
+          ) : (
+            <p className='not-found'>
+              No restaurants found with the search term.
+            </p>
+          )}
+        </>
+      )}
+    </>
   )
 }
