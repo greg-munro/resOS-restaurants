@@ -25,12 +25,10 @@ export const Restaurant = ({
 
     const startTime = new Date();
     startTime.setHours(startHour, startMinute);
-
     const endTime = new Date();
     endTime.setHours(endHour, endMinute);
-
     const currentTime = getCurrentTime();
-
+    
     return currentTime >= startTime && currentTime <= endTime;
   });
 

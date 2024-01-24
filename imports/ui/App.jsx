@@ -103,6 +103,7 @@ export const App = () => {
             setSelectedFilter={setSelectedFilter}
             selectedStatus={selectedStatus}
             setSelectedStatus={setSelectedStatus}
+            resetFilters={resetFilters}
           />
 
           {filteredRestaurants.length > 0 ? (

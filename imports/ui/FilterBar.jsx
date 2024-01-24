@@ -2,7 +2,7 @@ import React from 'react'
 import Filter from './Filter'
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 
-const FilterBar = ({ restaurantsData, selectedFilter, setSelectedFilter, selectedStatus, setSelectedStatus }) => {
+const FilterBar = ({ restaurantsData, selectedFilter, setSelectedFilter, selectedStatus, setSelectedStatus, resetFilters }) => {
   // ensure values are only mapped over once, no need to repeat tags for dropdown
   const tags = Array.from(
     new Set(restaurantsData.flatMap((restaurant) => restaurant.tags))
@@ -23,13 +23,14 @@ const FilterBar = ({ restaurantsData, selectedFilter, setSelectedFilter, selecte
         options={tags}
         selectedValue={selectedFilter}
         setSelectedValue={setSelectedFilter}
+        resetFilters={resetFilters}
       />
-      <Filter
+      {/* <Filter
         label='Status'
         options={status}
         selectedValue={selectedStatus}
         setSelectedValue={setSelectedStatus}
-      />
+      /> */}
       <CancelOutlinedIcon className='clear' onClick={handleClearFilters}/>
     </div>
   )

@@ -4,10 +4,10 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function Filter({ label, options, selectedValue, setSelectedValue }) {
+export default function Filter({ label, options, selectedValue, setSelectedValue, resetFilters }) {
 
   const handleChange = (event) => {
-    setSelectedValue(event.target.value)
+    setSelectedValue(event.target.value, resetFilters())
   };
 
   return (
