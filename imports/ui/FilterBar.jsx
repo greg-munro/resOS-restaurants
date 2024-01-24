@@ -23,7 +23,6 @@ const FilterBar = ({ restaurantsData, selectedFilter, setSelectedFilter, selecte
         options={tags}
         selectedValue={selectedFilter}
         setSelectedValue={setSelectedFilter}
-
       />
       <Filter
         label='Status'
@@ -31,7 +30,7 @@ const FilterBar = ({ restaurantsData, selectedFilter, setSelectedFilter, selecte
         selectedValue={selectedStatus}
         setSelectedValue={setSelectedStatus}
       />
-      <CancelOutlinedIcon onClick={handleClearFilters}/>
+      <CancelOutlinedIcon className='clear' onClick={handleClearFilters}/>
     </div>
   )
 }

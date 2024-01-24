@@ -22,7 +22,7 @@ export const Restaurant = ({
   }
 
   return (
-    <div>
+    <>
       <Card className='restaurant-card' sx={{ maxWidth: 345 }}>
         <CardMedia sx={{ height: 130 }} image={image} title={name} />
         <CardContent>
@@ -37,6 +37,6 @@ export const Restaurant = ({
           <p>{address}</p>
         </CardContent>
       </Card>
-    </div>
+    </>
   )
 }
