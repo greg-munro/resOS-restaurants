@@ -1,73 +1,67 @@
 // App.js
-import React, { useState } from 'react'
-import { useTracker } from 'meteor/react-meteor-data'
-import { Restaurant } from './Restaurant'
-import { RestaurantsCollection } from '../api/RestaurantsCollection'
-import { SearchBar } from './SearchBar'
-import CuisineBtn from './CuisineBtn'
-import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined'
-import Greeting from './Greeting'
-import FilterBar from './FilterBar'
+import React, { useState } from 'react';
+import { useTracker } from 'meteor/react-meteor-data';
+import { Restaurant } from './Restaurant';
+import { RestaurantsCollection } from '../api/RestaurantsCollection';
+import { SearchBar } from './SearchBar';
+import CuisineBtn from './CuisineBtn';
+import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
+import Greeting from './Greeting';
+import FilterBar from './FilterBar';
 
 export const App = () => {
-  const [currentScreen, setCurrentScreen] = useState('home')
-  const [selectedFilter, setSelectedFilter] = useState('')
-  const [selectedStatus, setSelectedStatus] = useState('')
-  const [searchTerm, setSearchTerm] = useState('')
+  const [currentScreen, setCurrentScreen] = useState('home');
+  const [selectedFilter, setSelectedFilter] = useState('');
+  const [selectedStatus, setSelectedStatus] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCuisine, setSelectedCuisine] = useState('');
 
-  document.body.className = currentScreen === 'all' ? 'white-background' : ''
+  document.body.className = currentScreen === 'all' ? 'white-background' : '';
 
   const restaurants = useTracker(() => {
-    return RestaurantsCollection.find().fetch()
-  })
+    return RestaurantsCollection.find().fetch();
+  });
 
   const filteredRestaurants = restaurants.filter((restaurant) => {
-    const styleMatch =
-      !selectedFilter || restaurant.tags.includes(selectedFilter)
-    const statusMatch = !selectedStatus || restaurant.status === selectedStatus
+    const styleMatch = !selectedFilter || restaurant.tags.includes(selectedFilter);
+    const statusMatch = !selectedStatus || restaurant.status === selectedStatus;
     const searchMatch =
       !searchTerm ||
       restaurant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      restaurant.tags.some((tag) =>
-        tag.toLowerCase().includes(searchTerm.toLowerCase())
-      )
+      restaurant.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+    const cuisineMatch = restaurant.tags.includes(selectedCuisine);
 
-    return styleMatch && statusMatch && searchMatch
-  })
+    return styleMatch && statusMatch && searchMatch && cuisineMatch;
+  });
 
   const handleShowAllRestaurants = () => {
-    setSearchTerm('')
-    setCurrentScreen('all')
-  }
+    setSearchTerm('');
+    setCurrentScreen('all');
+  };
+
   const handleBackBtn = () => {
-    setCurrentScreen('home')
-  }
+    setCurrentScreen('home');
+  };
 
   const handleSearch = (term) => {
-    setSearchTerm(term)
-    setCurrentScreen('all')
-  }
+    setSearchTerm(term);
+    setCurrentScreen('all');
+  };
 
-  // const transformSearchBar = () => {
-  //   const searchBar = document.getElementById('search-form')
-  //   searchBar.classList.add('search-bar-transform')
-  // }
+  const handleCuisineClick = (cuisine) => {
+    setSelectedCuisine(cuisine);
+    setCurrentScreen('all')
+  };
 
   return (
     <>
       {currentScreen === 'home' && (
         <>
           <div className='home-search'>
-            <img
-              src='/assets/resos-logos-idgmzEl7lk.svg'
-              className='resos-logo'
-            ></img>
+            <img src='/assets/resos-logos-idgmzEl7lk.svg' className='resos-logo'></img>
             <SearchBar onSubmit={handleSearch} />
-            <CuisineBtn />
-            <button
-              className='btn-standard all'
-              onClick={handleShowAllRestaurants}
-            >
+            <CuisineBtn onCuisineClick={handleCuisineClick} />
+            <button className='btn-standard all' onClick={handleShowAllRestaurants}>
               All Restaurants
             </button>
           </div>
@@ -76,14 +70,11 @@ export const App = () => {
 
       {currentScreen === 'all' && (
         <>
-          {/* {transformSearchBar()} */}
           <div className='detail-header'>
-
-              <button onClick={handleBackBtn} className='btn-standard'>
-                <KeyboardBackspaceOutlinedIcon></KeyboardBackspaceOutlinedIcon>
-              </button>
-              <Greeting />
-
+            <button onClick={handleBackBtn} className='btn-standard'>
+              <KeyboardBackspaceOutlinedIcon />
+            </button>
+            <Greeting />
           </div>
 
           <FilterBar
@@ -106,18 +97,14 @@ export const App = () => {
                   creation_date={restaurant.creation_date}
                   openingHours={restaurant.opening_hours}
                   image={restaurant.image}
-
                 />
               ))}
             </ul>
           ) : (
-            <p className='not-found'>
-              No restaurants found with the search term.
-            </p>
+            <p className='not-found'>No restaurants found with the search term.</p>
           )}
-          
         </>
       )}
     </>
-  )
-}
+  );
+};
