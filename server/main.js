@@ -26,7 +26,7 @@ Meteor.startup(() => {
       address: '789 Oak Blvd',
       tags: ['Ice Cream', 'Dessert'],
       creation_date: '20/02/2023',
-      opening_hours: ['12:00 - 16:00'],
+      opening_hours: ['09:00 - 16:00'],
       image: 'https://hips.hearstapps.com/hmg-prod/images/screen-shot-2020-12-07-at-11-15-41-am-1607358551.png'
     },
     {
@@ -42,7 +42,7 @@ Meteor.startup(() => {
       address: '555 Burger Street',
       tags: ['Japanese', 'Sushi'],
       creation_date: '05/04/2023',
-      opening_hours: ['11:00 - 21:30'],
+      opening_hours: ['10:00 - 21:30'],
       image: 'https://media.cntraveller.com/photos/611bf2328c1b7286f1c12024/16:9/w_2992,h_1683,c_limit/sumi-interiors-1-jun21-pr.jpg'
     },
     {
@@ -50,7 +50,7 @@ Meteor.startup(() => {
       address: 'Carrer de Enric Granados 180',
       tags: ['Spanish', 'Mediterranean'],
       creation_date: '10/01/2023',
-      opening_hours: ['12:00 -16:00', '18:00 - 23:00'],
+      opening_hours: ['11:00 -16:00', '18:00 - 23:00'],
       image: 'https://www.totbarcelona.cat/app/uploads/sites/11/2023/03/bodega-quimet.jpg'
     },
     {

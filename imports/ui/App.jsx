@@ -14,12 +14,10 @@ import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined'
 export const App = () => {
   const [currentScreen, setCurrentScreen] = useState('home')
   const [selectedFilter, setSelectedFilter] = useState('')
-  const [selectedStatus, setSelectedStatus] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCuisine, setSelectedCuisine] = useState('')
   const [darkMode, setDarkMode] = useState(false)
 
-  // Toggle dark mode
   const toggleDarkMode = () => {
     setDarkMode(!darkMode)
   }
@@ -32,9 +30,10 @@ export const App = () => {
     return RestaurantsCollection.find().fetch()
   })
 
+  const [expanded, setExpanded] = useState(false); 
+
   const resetFilters = () => {
     setSelectedFilter('')
-    setSelectedStatus('')
     setSearchTerm('')
     setSelectedCuisine('')
   }
@@ -60,11 +59,13 @@ export const App = () => {
     setCurrentScreen('all')
     setSelectedCuisine(cuisine)
   }
+  const handleChange = () => {
+    setExpanded(!expanded); 
+  };
 
   const filteredRestaurants = restaurants.filter((restaurant) => {
     const styleMatch =
       !selectedFilter || restaurant.tags.includes(selectedFilter)
-    const statusMatch = !selectedStatus || restaurant.status === selectedStatus
     const searchMatch =
       !searchTerm ||
       restaurant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -74,7 +75,7 @@ export const App = () => {
     const cuisineMatch =
       !selectedCuisine || restaurant.tags.includes(selectedCuisine)
 
-    return styleMatch && statusMatch && searchMatch && cuisineMatch
+    return styleMatch && searchMatch && cuisineMatch
   })
 
   return (
@@ -116,8 +117,6 @@ export const App = () => {
             restaurantsData={restaurants}
             selectedFilter={selectedFilter}
             setSelectedFilter={setSelectedFilter}
-            selectedStatus={selectedStatus}
-            setSelectedStatus={setSelectedStatus}
             resetFilters={resetFilters}
             darkMode={darkMode}
           />
@@ -130,10 +129,11 @@ export const App = () => {
                   name={restaurant.name}
                   address={restaurant.address}
                   tags={restaurant.tags}
-                  status={restaurant.status}
                   creation_date={restaurant.creation_date}
                   openingHours={restaurant.opening_hours}
                   image={restaurant.image}
+                  handleChange={handleChange}
+                  expanded={expanded}
                 />
               ))}
             </ul>

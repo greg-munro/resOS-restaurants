@@ -21,7 +21,7 @@ export const SearchBar = ({ onSubmit }) => {
       <input
         id="search"
         type="search"
-        placeholder="Search..."
+        placeholder="Pizza? Dessert...?"
         autoComplete="off"
         value={searchTerm}
         onChange={handleInputChange}

@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
+import React, { useState } from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export const Restaurant = ({
   name,
@@ -11,13 +15,17 @@ export const Restaurant = ({
   creation_date,
   openingHours,
   image,
+  handleChange,
+  expanded
 }) => {
+
+
+  // Check if the current time is within the opening hour range
   const getCurrentTime = () => {
     const now = new Date();
     return now;
   };
 
-  // Check if the current time is within any of the opening hour ranges
   const isOpen = openingHours.some(schedule => {
     const [startHour, startMinute, endHour, endMinute] = schedule
       .split(/[^\d]+/)
@@ -33,25 +41,38 @@ export const Restaurant = ({
   });
 
   const buttonStyle = {
-    backgroundColor: isOpen ? '#6AA84F' : '#C0C0C0',
+    backgroundColor: isOpen ? '#549239' : '#a3a3a3',
+    color: 'white',
   }
 
-  return (
-    <>
-      <Card className='restaurant-card' sx={{ maxWidth: 345 }}>
-        <CardMedia sx={{ height: 130 }} image={image} title={name} />
-        <CardContent>
-          <div className='card-header'>
-            <h3>{name}</h3>
-            <span className='btn-standard status' style={buttonStyle}>
-              {isOpen ? 'Open': 'Closed'}
-            </span>
-          </div>
 
-          <p className='light-font'>{tags.join(', ')}</p>
+  return (
+    <Card className='restaurant-card' sx={{ maxWidth: 345 }}>
+      <CardMedia sx={{ height: 130 }} image={image} title={name} alt={name} />
+      <CardContent>
+        <div className='card-header'>
+          <h3>{name}</h3>
+          <span className='btn-standard status' style={buttonStyle}>
+            {isOpen ? 'Open': 'Closed'}
+          </span>
+        </div>
+
+        <p className='light-font'>{tags.join(', ')}</p>
+      </CardContent>
+
+      <Accordion expanded={expanded} onChange={handleChange}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1-content"
+          id="panel1-header"
+        >
+          More info...
+        </AccordionSummary>
+        <AccordionDetails>
           <p>{address}</p>
-        </CardContent>
-      </Card>
-    </>
-  )
-}
+          <p>{openingHours}</p>
+        </AccordionDetails>
+      </Accordion>
+    </Card>
+  );
+};
