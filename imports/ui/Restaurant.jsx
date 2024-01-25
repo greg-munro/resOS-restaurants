@@ -71,9 +71,9 @@ export const Restaurant = ({
             More info...
           </AccordionSummary>
           <AccordionDetails>
-            <p>{address}</p>
+            <p class="light-font">{address}</p>
             <h5>Opening times:</h5>
-            {openingHours.map(hours => <p>{hours}</p>)}
+            {openingHours.map(hours => <p class="light-font black">{hours}</p>)}
           </AccordionDetails>
         </Accordion>
       </div>

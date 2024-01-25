@@ -169,6 +169,9 @@ input:not(:placeholder-shown) {
 .light-font {
   font-weight: 200;
   color: #8282c2;
+  &.black {
+    color: black;
+  }
 }
 .clear {
   margin: 0 10px;
