@@ -107,6 +107,7 @@ input:not(:placeholder-shown) {
 .white-background {
   background-color: #fff;
   background: none;
+  
 }
 
 .restaurant-card {
@@ -169,7 +170,9 @@ input:not(:placeholder-shown) {
   font-weight: 200;
   color: #8282c2;
 }
-
+.clear {
+  margin: 0 10px;
+}
 .btn-standard {
   align-items: center;
   background-color: #b8c7ff;
@@ -218,7 +221,7 @@ input:not(:placeholder-shown) {
   background: none;
 }
 .dark-mode {
-  background-color: #6e4b83;
+  background-color: #634a72;
   * {
     color: white;
   }
@@ -228,12 +231,19 @@ input:not(:placeholder-shown) {
 .nav-bar {
   background-color: #8385a6;
 }
+.nav-controls {
+  display: flex;
+  align-items: center;
+}
 
 .MuiButtonBase-root {
   color: black;
 }
 #search {
   color: black;
+}
+.accordion {
+  background-color: #60639a;
 }
 }
 
@@ -260,10 +270,18 @@ input:not(:placeholder-shown) {
   }
   .clear {
     cursor: pointer;
+    margin: 0 5px;
   }
   .nav-bar {
     justify-content: space-evenly;
-    background-color: #ecf5fe;;
+    background-color: #ecf5fe;
+    justify-content: flex-end;
+  }
+  .nav-controls {
+    margin: 0 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
   .filter {
     margin: 0 10px

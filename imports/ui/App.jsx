@@ -132,8 +132,6 @@ export const App = () => {
                   creation_date={restaurant.creation_date}
                   openingHours={restaurant.opening_hours}
                   image={restaurant.image}
-                  handleChange={handleChange}
-                  expanded={expanded}
                 />
               ))}
             </ul>

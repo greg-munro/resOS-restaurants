@@ -13,6 +13,7 @@ const FilterBar = ({ restaurantsData, selectedFilter, setSelectedFilter, resetFi
 
   return (
     <div className='nav-bar'>
+    <div className='nav-controls'>
       <Filter
         label='Style'
         options={tags}
@@ -22,6 +23,7 @@ const FilterBar = ({ restaurantsData, selectedFilter, setSelectedFilter, resetFi
         darkMode={darkMode}
       />
       <CancelOutlinedIcon className='clear' onClick={handleClearFilters}/>
+      </div>
     </div>
   )
 }

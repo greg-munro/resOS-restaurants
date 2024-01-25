@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Accordion from '@mui/material/Accordion';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import AccordionCard from './Accordion';
 
 export const Restaurant = ({
   name,
@@ -15,10 +12,9 @@ export const Restaurant = ({
   creation_date,
   openingHours,
   image,
-  handleChange,
-  expanded
 }) => {
 
+  const [expanded, setExpanded] = useState(false);
 
   // Check if the current time is within the opening hour range
   const getCurrentTime = () => {
@@ -45,6 +41,9 @@ export const Restaurant = ({
     color: 'white',
   }
 
+  const handleChange = () => {
+    setExpanded(!expanded); 
+  };
 
   return (
     <Card className='restaurant-card' sx={{ maxWidth: 345 }}>
@@ -60,7 +59,7 @@ export const Restaurant = ({
         <p className='light-font'>{tags.join(', ')}</p>
       </CardContent>
 
-      <Accordion expanded={expanded} onChange={handleChange}>
+      {/* <Accordion expanded={expanded} onChange={handleChange}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -72,7 +71,8 @@ export const Restaurant = ({
           <p>{address}</p>
           <p>{openingHours}</p>
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
+      <AccordionCard expanded={expanded} handleChange={handleChange} />
     </Card>
   );
 };
