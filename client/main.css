@@ -112,6 +112,7 @@ input:not(:placeholder-shown) {
 
 .restaurant-card {
   margin: 15px;
+  overflow: visible;
 }
 
 .restaurant-list {
@@ -120,7 +121,6 @@ input:not(:placeholder-shown) {
   width: 80%;
   margin: 100px 0;
 }
-
 .detail-header {
   display: flex;
   justify-content: space-between;
@@ -213,6 +213,11 @@ input:not(:placeholder-shown) {
   }
 }
 
+.nav-controls {
+  display: flex;
+  align-items: center;
+}
+
 .btn-standard.all:hover {
   background-color: white;
 }
@@ -230,10 +235,6 @@ input:not(:placeholder-shown) {
 }
 .nav-bar {
   background-color: #8385a6;
-}
-.nav-controls {
-  display: flex;
-  align-items: center;
 }
 
 .MuiButtonBase-root {

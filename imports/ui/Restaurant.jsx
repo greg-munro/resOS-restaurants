@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import AccordionCard from './Accordion';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export const Restaurant = ({
   name,
@@ -46,7 +49,7 @@ export const Restaurant = ({
   };
 
   return (
-    <Card className='restaurant-card' sx={{ maxWidth: 345 }}>
+    <Card className='restaurant-card' sx={{ maxWidth: 345 }} style={{ overflow: "visible"}}>
       <CardMedia sx={{ height: 130 }} image={image} title={name} alt={name} />
       <CardContent>
         <div className='card-header'>
@@ -58,21 +61,22 @@ export const Restaurant = ({
 
         <p className='light-font'>{tags.join(', ')}</p>
       </CardContent>
-
-      {/* <Accordion expanded={expanded} onChange={handleChange}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1-content"
-          id="panel1-header"
-        >
-          More info...
-        </AccordionSummary>
-        <AccordionDetails>
-          <p>{address}</p>
-          <p>{openingHours}</p>
-        </AccordionDetails>
-      </Accordion> */}
-      <AccordionCard expanded={expanded} handleChange={handleChange} />
+      <div style={{ height: 45, overflow: "visible", zIndex: 9999 }}>
+        <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1-content"
+            id="panel1-header"
+          >
+            More info...
+          </AccordionSummary>
+          <AccordionDetails>
+            <p>{address}</p>
+            <h5>Opening times:</h5>
+            {openingHours.map(hours => <p>{hours}</p>)}
+          </AccordionDetails>
+        </Accordion>
+      </div>
     </Card>
   );
 };
