@@ -17,8 +17,6 @@ export const Restaurant = ({
   image,
 }) => {
 
-  const [expanded, setExpanded] = useState(false);
-
   // Check if the current time is within the opening hour range
   const getCurrentTime = () => {
     const now = new Date();
@@ -44,10 +42,6 @@ export const Restaurant = ({
     color: 'white',
   }
 
-  const handleChange = () => {
-    setExpanded(!expanded); 
-  };
-
   return (
     <Card className='restaurant-card' sx={{ maxWidth: 345 }} style={{ overflow: "visible"}}>
       <CardMedia sx={{ height: 130 }} image={image} title={name} alt={name} />
@@ -62,7 +56,7 @@ export const Restaurant = ({
         <p className='light-font'>{tags.join(', ')}</p>
       </CardContent>
       <div style={{ height: 45, overflow: "visible", zIndex: 9999 }}>
-        <Accordion>
+        <Accordion className='accordion'>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1-content"
@@ -71,9 +65,10 @@ export const Restaurant = ({
             More info...
           </AccordionSummary>
           <AccordionDetails>
-            <p class="light-font">{address}</p>
-            <h5>Opening times:</h5>
-            {openingHours.map(hours => <p class="light-font black">{hours}</p>)}
+          <h5>Address</h5>
+            <p className="light-font">{address}</p>
+            <h5>Opening times</h5>
+            {openingHours.map((hours, i) => <p key={i} className="light-font black">{hours}</p>)}
           </AccordionDetails>
         </Accordion>
       </div>

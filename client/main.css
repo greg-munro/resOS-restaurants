@@ -3,10 +3,9 @@
 body {
   padding: 10px;
   font-family: 'Inter', sans-serif;
-  /* background-color: rgb(186, 133, 203); */
   height: 100vh;
-  background: #482B5A;
-  background: linear-gradient(90deg, rgba(91, 43, 135, 1) 0%, #482B5A 74%);
+  background: rgb(174, 194, 238);
+  background: radial-gradient(circle, rgb(89, 118, 179) 70%, rgb(147, 136, 228) 99%);
 }
 
 /*Home search styles*/
@@ -107,7 +106,7 @@ input:not(:placeholder-shown) {
 .white-background {
   background-color: #fff;
   background: none;
-  
+
 }
 
 .restaurant-card {
@@ -121,6 +120,7 @@ input:not(:placeholder-shown) {
   width: 80%;
   margin: 100px 0;
 }
+
 .detail-header {
   display: flex;
   justify-content: space-between;
@@ -169,13 +169,16 @@ input:not(:placeholder-shown) {
 .light-font {
   font-weight: 200;
   color: #8282c2;
+
   &.black {
     color: black;
   }
 }
+
 .clear {
   margin: 0 10px;
 }
+
 .btn-standard {
   align-items: center;
   background-color: #b8c7ff;
@@ -224,32 +227,49 @@ input:not(:placeholder-shown) {
 .btn-standard.all:hover {
   background-color: white;
 }
+
 .toggle {
   height: 10px;
   background: none;
 }
+
 .dark-mode {
-  background-color: #634a72;
+  background: rgb(174, 194, 238);
+  background: radial-gradient(circle, rgb(89, 118, 179) 70%, rgb(110, 105, 161) 99%);
+
   * {
     color: white;
   }
-.restaurant-card {
-  background-color: #60639a;
-}
-.nav-bar {
-  background-color: #8385a6;
+
+  .restaurant-card,
+  .MuiList-root,
+  .accordion {
+    background-color: #60639a;
+  }
+
+  .nav-bar {
+    background-color: #8385a6;
+  }
+
+  .MuiButtonBase-root,
+  .MuiSelect-select,
+  .MuiFormLabel-root {
+    color: rgb(255, 255, 255);
+  }
+
+  #search {
+    color: black;
+  }
+
+  .black {
+    color: white;
+  }
+
+  .MuiInputBase-input {
+    border: 1px solid rgb(255, 255, 255);
+  }
 }
 
-.MuiButtonBase-root {
-  color: black;
-}
-#search {
-  color: black;
-}
-.accordion {
-  background-color: #60639a;
-}
-}
 
 /* Media Query for Desktop Styles */
 @media only screen and (min-width: 768px) {
@@ -257,36 +277,42 @@ input:not(:placeholder-shown) {
   #search-form {
     width: 100%;
   }
-  .btn-standard
-  &.all {
-      margin: 50px 0;
+
+  .btn-standard &.all {
+    margin: 50px 0;
   }
+
   .restaurant-list {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
   }
+
   .restaurant-card {
     margin: 50px;
     min-width: 350px;
     min-height: 200px;
   }
+
   .clear {
     cursor: pointer;
     margin: 0 5px;
   }
+
   .nav-bar {
     justify-content: space-evenly;
     background-color: #ecf5fe;
     justify-content: flex-end;
   }
+
   .nav-controls {
     margin: 0 30px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
   }
+
   .filter {
     margin: 0 10px
   }
