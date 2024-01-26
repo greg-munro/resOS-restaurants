@@ -4,6 +4,8 @@
 
 Welcome to the Restaurant Finder App! This web application allows users to search and explore different restaurants based on various criteria.
 
+- [Live demo](https://resos.eu.meteorapp.com/)
+
 ## Features
 
 - **Home Page:**
