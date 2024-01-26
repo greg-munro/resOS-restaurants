@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Greeting = () => {
+export const Greeting = () => {
   const getTimeOfDay = () => {
     const currentHour = new Date().getHours();
 
@@ -15,6 +15,7 @@ const Greeting = () => {
 
   const timeOfDayGreeting = getTimeOfDay();
 
+
   return (
     <>
       <h2 className='greeting'>{timeOfDayGreeting} 😊</h2>
@@ -22,4 +23,3 @@ const Greeting = () => {
   );
 };
 
-export default Greeting;
