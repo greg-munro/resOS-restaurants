@@ -1,4 +1,3 @@
-// SearchBar.js
 import React, { useState } from 'react';
 
 export const SearchBar = ({ onSubmit }) => {
