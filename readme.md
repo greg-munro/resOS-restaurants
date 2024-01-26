@@ -65,6 +65,14 @@ On the "All Restaurants" page, use filters to narrow down your search.
 Click the more info dropdown to display information about the restaurant.
 If no restaurants are found by user's prompt, an error message will display. 
 
+## Testing
+
+To run testing, open the terminal and run
+
+```bash
+     npm run test:watch
+```
+
 ## Backlog
 
 - Performance Optimization:
