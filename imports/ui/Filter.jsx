@@ -1,8 +1,8 @@
-import React from 'react'
-import InputLabel from '@mui/material/InputLabel'
-import MenuItem from '@mui/material/MenuItem'
-import FormControl from '@mui/material/FormControl'
-import Select from '@mui/material/Select'
+import React from 'react';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 export default function Filter({
   label,
@@ -12,18 +12,18 @@ export default function Filter({
   resetFilters,
 }) {
   const handleChange = (event) => {
-    setSelectedValue(event.target.value, resetFilters())
-  }
+    setSelectedValue(event.target.value, resetFilters());
+  };
 
   return (
     <FormControl sx={{ m: 0.5, minWidth: 120 }} size='small'>
       <InputLabel id='filterLabel'>{label}</InputLabel>
       <Select
-        labelId='filterLabelValue'
+        labelId='filterLabel'
         id='filterValue'
         value={selectedValue}
-        label={label}
         onChange={handleChange}
+        aria-labelledby='filterLabel' // Add this line
         sx={{
           width: 200,
         }}
@@ -36,5 +36,5 @@ export default function Filter({
           ))}
       </Select>
     </FormControl>
-  )
+  );
 }

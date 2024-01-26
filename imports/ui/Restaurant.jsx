@@ -11,7 +11,6 @@ export const Restaurant = ({
   name,
   address,
   tags,
-  status,
   creation_date,
   openingHours,
   image,
