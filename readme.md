@@ -32,7 +32,7 @@ Welcome to the Restaurant Finder App! This web application allows users to searc
   - Material UI components
   - CSS with media queries for responsive design
 
-  - **Testing:**
+- **Testing:**
   - Jest
   - React Testing Library
 
