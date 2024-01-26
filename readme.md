@@ -101,4 +101,4 @@ Add support for multiple languages to make the application accessible to a wider
 - Code Refactoring:
 
 Identify and refactor any code smells or areas of technical debt in the application.
-Remove any components that have no future use of reuse.
+Remove any components that have no future reuse.
