@@ -24,7 +24,7 @@
       "client": "client/main.jsx",
       "server": "server/main.js"
     },
-    "testModule": "tests/main.js"
+    "testModule": "tests/Greeting.test.jsx"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.23.9",
