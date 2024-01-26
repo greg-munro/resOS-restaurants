@@ -3,7 +3,7 @@ import Filter from './Filter'
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 
 const FilterBar = ({ restaurantsData, selectedFilter, setSelectedFilter, resetFilters }) => {
-  // ensure values are only mapped over once, no need to repeat tags for dropdown
+  // ensure values are only mapped over once, ensuring unique values in dropdown
   const tags = Array.from(
     new Set(restaurantsData.flatMap((restaurant) => restaurant.tags))
   )

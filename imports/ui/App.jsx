@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from 'react'
 import { useTracker } from 'meteor/react-meteor-data'
 import { Restaurant } from './Restaurant'
@@ -18,19 +17,18 @@ export const App = () => {
   const [selectedCuisine, setSelectedCuisine] = useState('')
   const [darkMode, setDarkMode] = useState(false)
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode)
-  }
-
-  document.body.className = `${darkMode ? 'dark-mode' : ''} ${
-    currentScreen === 'all' ? 'white-background' : ''
-  }`
-
+  // getting restaurants from DB
   const restaurants = useTracker(() => {
     return RestaurantsCollection.find().fetch()
   })
 
-  const [expanded, setExpanded] = useState(false); 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode)
+  }
+  // setting background colors depending on user location/selection
+  document.body.className = `${darkMode ? 'dark-mode' : ''} 
+  ${currentScreen === 'all' ? 'white-background' : ''}`
+
 
   const resetFilters = () => {
     setSelectedFilter('')
@@ -59,9 +57,6 @@ export const App = () => {
     setCurrentScreen('all')
     setSelectedCuisine(cuisine)
   }
-  const handleChange = () => {
-    setExpanded(!expanded); 
-  };
 
   const filteredRestaurants = restaurants.filter((restaurant) => {
     const styleMatch =

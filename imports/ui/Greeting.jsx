@@ -15,7 +15,6 @@ const Greeting = () => {
 
   const timeOfDayGreeting = getTimeOfDay();
 
-
   return (
     <>
       <h2 className='greeting'>{timeOfDayGreeting} 😊</h2>

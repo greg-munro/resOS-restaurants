@@ -23,7 +23,7 @@ export default function Filter({
         id='filterValue'
         value={selectedValue}
         onChange={handleChange}
-        aria-labelledby='filterLabel' // Add this line
+        aria-labelledby='filterLabel'
         sx={{
           width: 200,
         }}
