@@ -32,6 +32,10 @@ Welcome to the Restaurant Finder App! This web application allows users to searc
   - Material UI components
   - CSS with media queries for responsive design
 
+  - **Testing:**
+  - Jest
+  - React Testing Library
+
 ## Getting Started
 
 1. Clone the repository:
@@ -51,12 +55,6 @@ Open one terminal and run
   ```bash
      meteor run
 ```
-
-Open a second terminal and run
-
-  ```bash
-     meteor mongo
-  ```
 
 ## Usage 
 Open the app in your browser.
