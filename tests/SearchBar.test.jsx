@@ -26,5 +26,4 @@ describe("SearchBar", () => {
     expect(onSubmitMock).toHaveBeenCalledWith("Restuarante Pizza")
 
   })
-
 })

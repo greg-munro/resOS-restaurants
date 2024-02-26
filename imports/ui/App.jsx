@@ -29,7 +29,6 @@ export const App = () => {
   document.body.className = `${darkMode ? 'dark-mode' : ''} 
   ${currentScreen === 'all' ? 'white-background' : ''}`
 
-
   const resetFilters = () => {
     setSelectedFilter('')
     setSearchTerm('')
@@ -61,12 +60,14 @@ export const App = () => {
   const filteredRestaurants = restaurants.filter((restaurant) => {
     const styleMatch =
       !selectedFilter || restaurant.tags.includes(selectedFilter)
+
     const searchMatch =
       !searchTerm ||
       restaurant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       restaurant.tags.some((tag) =>
         tag.toLowerCase().includes(searchTerm.toLowerCase())
       )
+    
     const cuisineMatch =
       !selectedCuisine || restaurant.tags.includes(selectedCuisine)
 
@@ -76,22 +77,21 @@ export const App = () => {
   return (
     <>
       {currentScreen === 'home' && (
-        <>
-          <div className='home-search'>
-            <img
-              src='/assets/resos-logos-idgmzEl7lk.svg'
-              className='resos-logo'
-            ></img>
-            <SearchBar onSubmit={handleSearch} />
-            <CuisineBtn onCuisineClick={handleCuisineClick} />
-            <button
-              className='btn-standard all'
-              onClick={handleShowAllRestaurants}
-            >
-              All Restaurants
-            </button>
-          </div>
-        </>
+        <div className='home-search'>
+ 
+          <img
+            src='/assets/resos-logos-idgmzEl7lk.svg'
+            className='resos-logo'
+          ></img>
+          <SearchBar onSubmit={handleSearch} />
+          <CuisineBtn onCuisineClick={handleCuisineClick} />
+          <button
+            className='btn-standard all'
+            onClick={handleShowAllRestaurants}
+          >
+            All Restaurants
+          </button>
+        </div>
       )}
 
       {currentScreen === 'all' && (

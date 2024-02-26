@@ -5,7 +5,8 @@
     "start": "meteor run",
     "test": "jest",
     "test:watch": "jest --watch",
-    "visualize": "meteor --production --extra-packages bundle-visualizer"
+    "visualize": "meteor --production --extra-packages bundle-visualizer",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@babel/runtime": "^7.23.5",
@@ -17,6 +18,7 @@
     "@types/meteor": "^2.9.8",
     "enzyme": "^3.11.0",
     "meteor-node-stubs": "^1.2.7",
+    "python": "^0.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -34,6 +36,7 @@
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.11",
     "babel-jest": "^29.7.0",
+    "cypress": "^13.6.5",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "react-test-renderer": "^18.2.0"

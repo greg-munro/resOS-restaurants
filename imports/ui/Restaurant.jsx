@@ -18,22 +18,25 @@ export const Restaurant = ({
 
   // Check if the current time is within the opening hour range
   const getCurrentTime = () => {
-    const now = new Date();
+    const now = new Date().toLocaleString()
+    console.log('now', now)
     return now;
   };
 
   const isOpen = openingHours.some(schedule => {
     const [startHour, startMinute, endHour, endMinute] = schedule
-      .split(/[^\d]+/)
+      .split(/[^\d]+/) // splits the schedule string into an arry and maps to a num
       .map(Number);
 
-    const startTime = new Date();
+    const startTime = new Date()
+    console.log('start time:', startTime)
     startTime.setHours(startHour, startMinute);
     const endTime = new Date();
     endTime.setHours(endHour, endMinute);
     const currentTime = getCurrentTime();
     
-    return currentTime >= startTime && currentTime <= endTime;
+    return currentTime >= startTime && currentTime <= endTime; // compare against correct timezones. 
+
   });
 
   const buttonStyle = {
